@@ -1,8 +1,8 @@
 {
-  "name": "com.example.myapp",
-  "displayName": "MyCordovaReactApp",
+  "name": "prompt-ai",
+  "displayName": "prompt-ai",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "A chatbot powered by multiple ai models",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

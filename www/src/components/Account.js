@@ -37,8 +37,8 @@ function Account() {
         overflow: 'hidden',
       }}
     >
-      {/* Dynamic Starfield Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* Dynamic Starfield Background - Moved to very bottom with lower z-index */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
         {[...Array(100)].map((_, i) => (
           <div
             key={`star-${i}`}
@@ -72,16 +72,16 @@ function Account() {
         ))}
       </div>
 
-      <h2 className="text-4xl font-extrabold text-white mb-8 relative z-10 text-center tracking-wide">
+      <h2 className="text-4xl font-extrabold text-white mb-8 relative z-30 text-center tracking-wide">
         <span style={{ color: '#00BCD4' }}>p-ai</span> <span style={{ color: '#FF8C00' }}>Subscription</span> Plans
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-30 max-w-6xl mx-auto">
         
         {/* p-ai Lite Card */}
-        <div className="bg-gradient-to-br from-[#1A2A44] to-[#0A0F23] p-8 rounded-xl shadow-2xl border border-gray-500 overflow-hidden relative">
-          <h3 className="text-2xl font-semibold text-white mb-4 relative z-20">p-ai Lite</h3>
-          <p className="text-gray-300 mb-6 relative z-20">Simple, fast, text-only conversations.</p>
-          <ul className="space-y-3 text-white relative z-20">
+        <div className="bg-gradient-to-br from-[#1A2A44] to-[#0A0F23] p-8 rounded-xl shadow-2xl border border-gray-500 overflow-hidden relative z-30">
+          <h3 className="text-2xl font-semibold text-white mb-4 relative z-40">p-ai Lite</h3>
+          <p className="text-gray-300 mb-6 relative z-40">Simple, fast, text-only conversations.</p>
+          <ul className="space-y-3 text-white relative z-40">
             <li>
               <h4 className="font-bold text-[#FF8C00]">p-ai Fast</h4>
               <p className="text-sm text-gray-400">OpenAI's gpt-3.5-turbo</p>
@@ -96,10 +96,10 @@ function Account() {
             </li>
           </ul>
           {/* Subscription Dropdown */}
-          <div className="mt-6 relative z-20">
+          <div className="mt-6 relative z-40">
             <label className="block text-sm font-medium text-gray-300 mb-2">Select Model</label>
             <select
-              className="w-full p-2 border border-[#00BCD4] rounded-lg bg-[#0A0F23] text-white"
+              className="w-full p-2 border border-[#00BCD4] rounded-lg bg-[#0A0F23] text-white relative z-50"
               value={selectedLiteModel}
               onChange={(e) => {
                 console.log('Lite model selected:', e.target.value);
@@ -111,17 +111,17 @@ function Account() {
               <option value="deepseek-chat">p-ai Expert (deepseek-chat)</option>
             </select>
           </div>
-          <button className="w-full mt-6 cosmic-button bg-gradient-to-br from-[#0A0F23] to-[#1A2A44] text-white p-4 rounded-xl shadow-lg hover:from-[#1A2A44] hover:to-[#0A0F23] transition-all duration-300 transform hover:scale-105 border border-[#00BCD4] text-[#00BCD4] relative z-20">
+          <button className="w-full mt-6 cosmic-button bg-gradient-to-br from-[#0A0F23] to-[#1A2A44] text-white p-4 rounded-xl shadow-lg hover:from-[#1A2A44] hover:to-[#0A0F23] transition-all duration-300 transform hover:scale-105 border border-[#00BCD4] text-[#00BCD4] relative z-40">
             Subscribe to {getModelName(selectedLiteModel)}
           </button>
         </div>
 
         {/* p-ai Intelligent Card */}
-        <div className="bg-gradient-to-br from-[#1A2A44] to-[#0A0F23] p-8 rounded-xl shadow-2xl border border-[#00BCD4] overflow-hidden relative">
+        <div className="bg-gradient-to-br from-[#1A2A44] to-[#0A0F23] p-8 rounded-xl shadow-2xl border border-[#00BCD4] overflow-hidden relative z-30">
           <div className="absolute inset-0 bg-[#00BCD4] opacity-10 blur-xl scale-150 rounded-full pointer-events-none" style={{ top: '-50%', left: '-50%' }}></div>
-          <h3 className="text-2xl font-semibold text-[#00BCD4] mb-4 relative z-20">p-ai Intelligent</h3>
-          <p className="text-gray-300 mb-6 relative z-20">Enhanced understanding of text and documents.</p>
-          <ul className="space-y-3 text-white relative z-20">
+          <h3 className="text-2xl font-semibold text-[#00BCD4] mb-4 relative z-40">p-ai Intelligent</h3>
+          <p className="text-gray-300 mb-6 relative z-40">Enhanced understanding of text and documents.</p>
+          <ul className="space-y-3 text-white relative z-40">
             <li>
               <h4 className="font-bold text-[#FF8C00]">p-ai Fast</h4>
               <p className="text-sm text-gray-400">OpenAI's gpt-4o</p>
@@ -136,10 +136,10 @@ function Account() {
             </li>
           </ul>
           {/* Subscription Dropdown */}
-          <div className="mt-6 relative z-20">
+          <div className="mt-6 relative z-40">
             <label className="block text-sm font-medium text-gray-300 mb-2">Select Model</label>
             <select
-              className="w-full p-2 border border-[#00BCD4] rounded-lg bg-[#0A0F23] text-white"
+              className="w-full p-2 border border-[#00BCD4] rounded-lg bg-[#0A0F23] text-white relative z-50"
               value={selectedIntelligentModel}
               onChange={(e) => {
                 console.log('Intelligent model selected:', e.target.value);
@@ -151,17 +151,17 @@ function Account() {
               <option value="deepseek-chat (V3)">p-ai Expert (deepseek-chat V3)</option>
             </select>
           </div>
-          <button className="w-full mt-6 cosmic-button bg-gradient-to-br from-[#0A0F23] to-[#1A2A44] text-white p-4 rounded-xl shadow-lg hover:from-[#1A2A44] hover:to-[#0A0F23] transition-all duration-300 transform hover:scale-105 border border-[#FF8C00] text-[#FF8C00] relative z-20">
+          <button className="w-full mt-6 cosmic-button bg-gradient-to-br from-[#0A0F23] to-[#1A2A44] text-white p-4 rounded-xl shadow-lg hover:from-[#1A2A44] hover:to-[#0A0F23] transition-all duration-300 transform hover:scale-105 border border-[#FF8C00] text-[#FF8C00] relative z-40">
             Subscribe to {getModelName(selectedIntelligentModel)}
           </button>
         </div>
 
         {/* p-ai Pro Card */}
-        <div className="bg-gradient-to-br from-[#1A2A44] to-[#0A0F23] p-8 rounded-xl shadow-2xl border border-[#FF8C00] overflow-hidden relative">
+        <div className="bg-gradient-to-br from-[#1A2A44] to-[#0A0F23] p-8 rounded-xl shadow-2xl border border-[#FF8C00] overflow-hidden relative z-30">
           <div className="absolute inset-0 bg-[#FF8C00] opacity-10 blur-xl scale-150 rounded-full pointer-events-none" style={{ bottom: '-50%', right: '-50%' }}></div>
-          <h3 className="text-2xl font-semibold text-[#FF8C00] mb-4 relative z-20">p-ai Pro</h3>
-          <p className="text-gray-300 mb-6 relative z-20">Full-suite capabilities with files and images.</p>
-          <ul className="space-y-3 text-white relative z-20">
+          <h3 className="text-2xl font-semibold text-[#FF8C00] mb-4 relative z-40">p-ai Pro</h3>
+          <p className="text-gray-300 mb-6 relative z-40">Full-suite capabilities with files and images.</p>
+          <ul className="space-y-3 text-white relative z-40">
             <li>
               <h4 className="font-bold text-[#00BCD4]">p-ai Pro</h4>
               <p className="text-sm text-gray-400">OpenAI's gpt-4o + GPT Image 1</p>
@@ -172,10 +172,10 @@ function Account() {
             </li>
           </ul>
           {/* Subscription Dropdown */}
-          <div className="mt-6 relative z-20">
+          <div className="mt-6 relative z-40">
             <label className="block text-sm font-medium text-gray-300 mb-2">Select Model</label>
             <select
-              className="w-full p-2 border border-[#FF8C00] rounded-lg bg-[#0A0F23] text-white"
+              className="w-full p-2 border border-[#FF8C00] rounded-lg bg-[#0A0F23] text-white relative z-50"
               value={selectedProModel}
               onChange={(e) => {
                 console.log('Pro model selected:', e.target.value);
@@ -186,7 +186,7 @@ function Account() {
               <option value="grok-4-0709 + grok-2-image-1212">p-ai Vision (grok-4 + grok-2-image)</option>
             </select>
           </div>
-          <button className="w-full mt-6 cosmic-button bg-gradient-to-br from-[#0A0F23] to-[#1A2A44] text-white p-4 rounded-xl shadow-lg hover:from-[#1A2A44] hover:to-[#0A0F23] transition-all duration-300 transform hover:scale-105 border border-white text-white relative z-20">
+          <button className="w-full mt-6 cosmic-button bg-gradient-to-br from-[#0A0F23] to-[#1A2A44] text-white p-4 rounded-xl shadow-lg hover:from-[#1A2A44] hover:to-[#0A0F23] transition-all duration-300 transform hover:scale-105 border border-white text-white relative z-40">
             Subscribe to {getModelName(selectedProModel)}
           </button>
         </div>
@@ -210,27 +210,31 @@ function Account() {
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5), 0 6px 10px rgba(0, 0, 0, 0.4);
             letter-spacing: 0.05em;
+            position: relative;
+            z-index: 40;
           }
           .cosmic-button:hover {
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6), 0 8px 12px rgba(0, 0, 0, 0.5);
           }
           select {
-            z-index: 20;
-            appearance: auto;
+            z-index: 50 !important;
+            position: relative;
             cursor: pointer;
             outline: none;
           }
-          .absolute.inset-0.z-0 {
-            pointer-events: none;
+          /* Ensure the starfield background doesn't interfere */
+          .fixed.inset-0.z-0 {
+            z-index: 0 !important;
           }
-          /* Ensure card backgrounds don't interfere with dropdowns */
-          .bg-gradient-to-br {
-            position: relative;
-            z-index: 10;
+          /* Ensure all interactive elements have proper z-index */
+          .relative.z-30 {
+            z-index: 30;
           }
-          /* Ensure absolute background elements in cards are non-interactive */
-          .bg-gradient-to-br > .absolute {
-            pointer-events: none;
+          .relative.z-40 {
+            z-index: 40;
+          }
+          .relative.z-50 {
+            z-index: 50;
           }
         `}
       </style>

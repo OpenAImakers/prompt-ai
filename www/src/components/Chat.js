@@ -38,7 +38,7 @@ function Chat({ chats, setChats, sidebarOpen }) {
                 msg.sender === 'user' ? 'bg-[#00BCD4] text-[#0A0F23] ml-auto' : 'bg-[#FF8C00] text-[#0A0F23]'
               }`}
             >
-              <p className="text-inherit">{msg.text}</p>
+              <p cla  ssName="text-inherit">{msg.text}</p>
               <span className="text-xs text-black/70">{msg.timestamp}</span>
             </div>
           ))
