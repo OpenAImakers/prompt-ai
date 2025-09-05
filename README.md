@@ -66,5 +66,3 @@ build/
 
 ## Contributing
 Contributions are welcome!
-
-Do you want me to refine this README further, add specific template examples, or focus on something else like a particular framework?
