@@ -27,6 +27,38 @@ Follow these steps to set up and run the project:
    This will create a `node_modules/` directory with all required packages. **Note**: Do not manually modify the `node_modules/` directory, as it’s automatically generated.
 
 3. **Run the Project and Development**:
+
+   # Project File Structure
+               p-ai/
+            ├── node_modules/
+            ├── platforms/
+            ├── plugins/
+            ├── resources/
+            ├── www/
+            │   ├── node_modules/
+            │   ├── public/
+            │   │   └── index.html
+            │   ├── src/
+            │   │   ├── components/
+            │   │   │   ├── Account.jsx
+            │   │   │   ├── Chat.jsx
+            │   │   ├── scripts/
+            │   │   │   └── ChatManager.js
+            │   │   ├── App.js
+            │   │   ├── index.js
+            │   │   └── tailwind.css
+            │   ├── index.html
+            │   ├── package.json
+            │   ├── package-lock.json
+            │   ├── postcss.config.js
+            │   └── tailwind.config.js
+            ├── .gitignore
+            ├── config.xml
+            ├── package.json
+            ├── package-lock.json
+            └── README.md
+
+
    Once dependencies are installed, start the project with:
    under development in the www folder:
          run
